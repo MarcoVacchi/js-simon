@@ -7,6 +7,7 @@ let countDownElement = setInterval (function (){
     count--;
     if (count === 0) {
         console.log("Sei arrivato a 0");
+        numbersListElement.className = "d-none";
         clearInterval(countDownElement);
     }
     countElementValue = document.getElementById("countdown").innerHTML = `${count}`;
