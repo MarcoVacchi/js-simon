@@ -21,8 +21,6 @@ let countDownElement = setInterval (function (){
 
     const numbersListElement = document.getElementById("numbers-list");
 
-    
-    
     let myNumber1 = randomNumber ();
     let myNumber2 = randomNumber ();
     let myNumber3 = randomNumber ();
@@ -36,9 +34,6 @@ let countDownElement = setInterval (function (){
      <li>${myNumber4}<li>
      <li>${myNumber5}<li>`;
 
-
-
-
   //  numbersListElement.innerHTML = `<li>${myNumbermath}`;
 
   function randomNumber (){
@@ -49,20 +44,34 @@ let countDownElement = setInterval (function (){
 
 // funzione per inserire i dati quando il contatore arriva a 0 e cambia schermata
 const saveNumberElements = document.querySelectorAll(".form-control");
+const messageElement = document.getElementById("message");
+//console.log(messageElement);
 
 formElement.addEventListener('submit', function (e) {
     e.preventDefault();
+
+    const checkNumbers = [myNumber1, myNumber2, myNumber3, myNumber4, myNumber5];
+
+    let newCheckNumbers = [];
 
     // Ciclo for per iterare sugli elementi
     for (let i = 0; i < saveNumberElements.length; i++) {
 
         let resultNumber = parseInt(saveNumberElements[i].value);
-    console.log(resultNumber);
-    if (resultNumber === myNumber1){
-        console.log('ciao')
-    }  
+
+        
+        if (checkNumbers.includes(resultNumber)) {
+            newCheckNumbers.push(resultNumber); 
+        }
     }
+
+    // Aggiorna il messaggio
+    if (newCheckNumbers.length > 0) {
+        messageElement.innerHTML = `Hai indovinato ${newCheckNumbers.length} numeri! (${newCheckNumbers})`;
+    } else {
+        messageElement.innerHTML = "Hai indovinato 0 numeri!";
+    }
+});
     
    
    
-});
