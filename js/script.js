@@ -8,6 +8,7 @@ let countDownElement = setInterval (function (){
     if (count === 0) {
         console.log("Sei arrivato a 0");
         numbersListElement.className = "d-none";
+        formElement.className = "d-block";
         clearInterval(countDownElement);
     }
     countElementValue = document.getElementById("countdown").innerHTML = `${count}`;
@@ -18,7 +19,8 @@ let countDownElement = setInterval (function (){
 
 // funzione mathrandom che mi restituisce 5 numeri random (numeri da 1 a 50);
 
-    const numbersListElement = document.getElementById ("numbers-list");
+    const numbersListElement = document.getElementById("numbers-list");
+    const formElement = document.getElementById("answers-form");
     
     
     let myNumber1 = randomNumber ();
@@ -42,4 +44,8 @@ let countDownElement = setInterval (function (){
   function randomNumber (){
     return Math.floor(Math.random() * 50) + 1
  }
+
+ // funzione per inserire i dati quando il contatore arriva a 0
+
+
   
