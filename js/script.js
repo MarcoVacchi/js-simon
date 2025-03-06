@@ -6,7 +6,7 @@ const formElement = document.getElementById("answers-form");
 let countDownElement = setInterval (function (){
 
     count--;
-    if (count === 9) {
+    if (count === 0) {
         console.log("Sei arrivato a 0");
         numbersListElement.className = "d-none";
         formElement.className = "d-block";
